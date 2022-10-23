@@ -9,7 +9,7 @@ class Odd_Even_Number
 
     private function odd_even_number(array $array): void
     {
-        for ($i = 0; $i < sizeof($array) - 1; $i++) {
+        for ($i = 0; $i < sizeof($array) ; $i++) {
             if (($array[$i] % 2) === 0) {
                 array_push($this->even, $array[$i]);
             } else {
