@@ -10,45 +10,23 @@ class valid_parentheses
   //Check opening parentheses
   private function opening_parentheses(string $parentheses): bool
   {
-    switch ($parentheses) {
-      case '(':
-        return true;
-        break;
-      case '{':
-        return true;
-        break;
-      case '[':
-        return true;
-        break;
-
-      default:
-        return false;
-        break;
-    }
+    return match ($parentheses) {
+      '(', '{', '[' => true,
+      default => false
+    };
   }
 
   //Check closing parentheses
   private function closing_parentheses(string $parentheses): bool
   {
-    switch ($parentheses) {
-      case ')':
-        return true;
-        break;
-      case '}':
-        return true;
-        break;
-      case ']':
-        return true;
-        break;
-
-      default:
-        return false;
-        break;
-    }
+    return match ($parentheses) {
+      ')', '}', ']' => true,
+      default => false
+    };
   }
 
   //Checking valid parentheses
-  private function valid_parentheses(string $parentheses):bool
+  private function valid_parentheses(string $parentheses): bool
   {
     for ($i = 0; $i < strlen($parentheses); $i++) {
       if ($this->opening_parentheses($parentheses[$i])) {
@@ -100,5 +78,5 @@ var_dump($status);
 echo '<br>';
 
 $input_parentheses_two = "({[]}";
-$status = $parentheses_object->parentheses($input_parentheses_two );
+$status = $parentheses_object->parentheses($input_parentheses_two);
 var_dump($status);
